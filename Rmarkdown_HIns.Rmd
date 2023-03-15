@@ -1,0 +1,92 @@
+---
+title: "Rmarkdown"
+author: "Viktoriia Tantsiura, Valeriia Zinoveva, Mercédesz Lehoczky"
+date: "2023-03-15"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE, 
+  warning = FALSE, 
+  message = FALSE, 
+  dpi = 300)
+```
+
+# Setup
+
+## Load libraries
+
+```{r}
+library(tidyverse)
+```
+
+## Load data
+
+```{r}
+data <- read.csv("data/insurance.csv")
+data
+```
+
+# Data exploration
+
+## Data dimensions
+
+```{r}
+dim(data)
+```
+
+## Data structure
+
+```{r}
+str(data)
+```
+#Test the empirical hypothesis. 
+
+## Data cleaning
+
+```{r}
+data_c <- data %>% 
+  filter(sex == "female") %>% 
+  mutate(Group = ifelse(age >= 35, "Above 35", "Below 35"))
+data_c
+```
+
+## Women in each group
+
+```{r}
+data_c %>% 
+  count(Group)
+```
+
+
+## Visualization
+
+```{r}
+data_c %>% 
+  ggplot(aes(x = Group, y = charges, color = Group)) +
+  geom_boxplot() +
+  labs(x = NULL, y = "Charges ($)", color = "Age") +
+  theme_bw()
+```
+
+
+## T-test
+
+```{r}
+t.test(charges ~ Group, data = data_c, alternative = "greater")
+```
+
+#Research question.
+
+- Do females spend more money on insurance after age of 35?
+
+
+##Empirical hypothesis addressing the research question. 
+
+Elder women (Age > 35) are likely to pay more on insurance. There, we hypothesize .....
+
+
+$H_0$ = Females after age 35 spend less than or same amount of money as females before 35 age
+$H_a$ = Females after age 35 spend more money than females before 35 age
+
