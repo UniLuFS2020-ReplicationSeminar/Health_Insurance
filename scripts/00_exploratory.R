@@ -19,7 +19,7 @@ library(ggplot2)
 library(tidyverse)
 
 ### Exploring charges ### ----
-summary(df$charges) # assuming 1000 USD/year
+summary(df$charges) # assuming USD/year
 range(df$charges) # the range is between 1121.874 and 63770.428
 
 plot(density(df$charges))
