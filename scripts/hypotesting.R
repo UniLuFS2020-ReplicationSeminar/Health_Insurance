@@ -1,5 +1,18 @@
 library(tidyverse)
 data <- read.csv("data/insurance.csv")#import data
+
+charges_vs_age_plot <- ggplot(data, aes(age, charges)) + # look if there correlation between charges and age
+  geom_point() +
+  labs(x = "Age", y = "Charges") + 
+  ggtitle("Charges vs. Age")
+
+charges_vs_age_sex_plot <- ggplot(data, aes(age, charges)) + # is sex makes difference?
+  geom_point() +
+  labs(x = "Age", y = "Charges") +
+  ggtitle("Charges vs. Age by Sex") +
+  scale_color_manual(values = c("red", "blue")) +  
+  aes(color = sex)
+
 data_c <- data %>% 
   filter(sex == "female") %>% 
   mutate(Group = ifelse(age >= 35, "Above 35", "Below 35")) #create a new data fr
