@@ -30,6 +30,7 @@ ggplot(df, aes(charges)) +
   geom_histogram(binwidth = 1000) # plotting to see the distribution 
                                   # like 
 
+ggsave(path = "figs", filename = "Distribution of charges.png")
 
 ### Exploring the age ### ----
 sort(unique(df$age)) 
@@ -38,6 +39,8 @@ summary(df$age) # descriptive stats
 ggplot(df, aes(age)) +
   geom_histogram(binwidth = 1) # plotting to see the distribution to decide 
                                # whether to use mean or median, distribution is more like uniform
+
+ggsave(path = "figs", filename = "Distribution of ages.png")
 
 ### Exploring the sex ### ----
 sort(unique(df$sex))
