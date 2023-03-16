@@ -352,7 +352,7 @@ display: none;
 <h1 class="title toc-ignore">Health Insurance Report</h1>
 <h4 class="author">Viktoriia Tantsiura, Valeriia Zinoveva, Mercédesz
 Lehoczky</h4>
-<h4 class="date">Last edited 2023-03-16 14:00:34</h4>
+<h4 class="date">Last edited 2023-03-16 15:03:58</h4>
 
 </div>
 
@@ -452,7 +452,7 @@ ggplot(health_insurance, aes(age, charges)) +
 variables of sex and charges, we can still utilize this dataset to
 improve our data manipulation skills. One way to do this is by isolating
 the female population and excluding the male observations from our
-analysis..</p>
+analysis.</p>
 <div id="research-question" class="section level3">
 <h3>Research question</h3>
 <p>Do females spend more money on insurance after age of 35?</p>
@@ -469,7 +469,6 @@ health_insurance_f %&gt;%
 ##   &lt;chr&gt;    &lt;int&gt;
 ## 1 Above 35   396
 ## 2 Below 35   266</code></pre>
-<p>The</p>
 <pre class="r"><code># Calculating groupwise summary statistics
 health_insurance_f %&gt;% 
   group_by(group) %&gt;%
@@ -479,8 +478,8 @@ health_insurance_f %&gt;%
 ##   &lt;chr&gt;           &lt;dbl&gt;
 ## 1 Above 35       15005.
 ## 2 Below 35        8944.</code></pre>
-<p>Is this change is statistically significant or could it be explained
-by sampling variability?</p>
+<p>Is this difference is statistically significant or could it be
+explained by sampling variability?</p>
 </div>
 <div id="empirical-hypothesis" class="section level3">
 <h3>Empirical hypothesis</h3>
