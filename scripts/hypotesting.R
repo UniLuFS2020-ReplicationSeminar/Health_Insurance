@@ -26,7 +26,7 @@ fig<- data_c %>%
   geom_boxplot() +
   labs(x = NULL, y = "Charges ($)", color = "Age") +
   theme_bw() #visualisation
-ggsave(path = "figs", filename = "Charges by age group box plot.png") #save in the figs folder
+ggsave(path = "figs", filename = "charges_by_age_gr_box_plot.png") #save in the figs folder
 
 t.test(charges ~ Group, data = data_c, alternative = "greater")#t-test(check if 
 #we reject H0 hypothesis)
